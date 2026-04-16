@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        .container {
+            width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px 60px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        .section h2 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .proj {
+            margin-bottom: 15px;
+        }
+
+        .proj h3 {
+            margin: 0;
+        }
+
+        .right {
+            float: right;
+            color: #777;
+        }
+
+        ul {
+            margin: 5px 0 10px 20px;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 5px 5px 0 0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>Adithya H Kashyap</h1>
+            <p>Email: placeholder@gmail.com | Phone: +91 1234567890</p>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <h2>Summary</h2>
+            <p>
+                Results-driven Software Engineering student with strong interest in full-stack development,
+                problem solving, and building scalable applications.
+            </p>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2>Education</h2>
+            <p>
+                <strong>Bachelor of Engineering (CSE)</strong> -  SJCE (2027)
+                <span class="right">CGPA: 9.2</span>
+            </p>
+            <p>
+                <strong>Pre-University</strong> - Sadvidya Pre University (2023)
+                <span class="right">98%</span>
+            </p>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+            <h2>Projects</h2>
+
+            <div class="proj clearfix">
+                <h3>
+                    <strong>Nutrino</strong>
+                    <span class="right">Flask, Firebase, HTML5, CSS3</span>
+                </h3>
+                <ul>
+                    <li>Developed a full-stack diet tracking web application</li>
+                    <li>Implemented calorie counter and nutrition analysis</li>
+                    <li>Integrated AI-based recommendations for diet planning</li>
+                </ul>
+            </div>
+
+            <div class="proj clearfix">
+                <h3>
+                    <strong>PeerPals</strong>
+                    <span class="right">React, Django, MySQL</span>
+                </h3>
+                <ul>
+                    <li>Built anonymous student-mentor feedback platform</li>
+                    <li>Implemented role-based authentication system</li>
+                    <li>Ensured security using JWT authentication</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section skills">
+            <h2>Skills</h2>
+            <span>Django</span>
+            <span> HTML5 </span>
+            <span> CSS3 </span>
+            <span>ReactJS</span>
+            <span>C</span>
+            <span>C++</span>
+            <span>SQL</span>
+            <span>Git</span>
+        </div>
+
+        <!-- Achievements -->
+        <div class="section">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Completed multiple full-stack projects</li>
+                <li>Strong problem-solving skills in Data Structures</li>
+                <li>Active participant in coding practice platforms</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
