@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CSS Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    h2 {
+      color: #34495e;
+      margin-top: 30px;
+    }
+
+    /* Font styles */
+    .font1 {
+      font-family: Arial, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .font2 {
+      font-family: 'Times New Roman', serif;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .font3 {
+      font-family: 'Courier New', monospace;
+      font-variant: small-caps;
+      margin-bottom: 10px;
+    }
+
+    /* Background demo boxes with image */
+    .bg {
+      width: 300px;
+      height: 150px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      display: inline-block;
+      vertical-align: top;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background-image: url("https://images.pexels.com/photos/35283362/pexels-photo-35283362.jpeg");
+      background-size: cover; /* optional: makes the image cover the div */
+      background-position: center; /* optional: centers the image */
+    }
+
+    /* Link styles */
+    a:link {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:visited {
+      color: #8e44ad;
+    }
+    a:hover {
+      color: #c0392b;
+      text-decoration: underline;
+    }
+    a:active {
+      color: #27ae60;
+    }
+
+    /* Visibility styles */
+    .visible {
+      visibility: visible;
+      background-color: #dff0d8;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+
+    .hidden {
+      visibility: hidden;
+      background: #f2dede;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Demo</h1>
+  <h2>Different font styles</h2>
+  <p class="font1">This is Arial, bold text</p>
+  <p class="font2">This is Times New Roman, italic text</p>
+  <p class="font3">This is Courier New with small caps</p>
+
+  <h2>Background Repeat</h2>
+  <div class="bg" style="background-repeat: repeat;">Repeat</div>
+  <div class="bg" style="background-repeat: no-repeat;">No Repeat</div>
+  <div class="bg" style="background-repeat: repeat-x;">Repeat X</div>
+  <div class="bg" style="background-repeat: repeat-y; background-size: 100vw 20vw; height: 40vh;">Repeat Y</div>
+
+  <h2>Links</h2>
+  <a href="https://google.com/q=asdf" target="_blank">Visit me</a>
+
+  <h2>Visibility</h2>
+  <div class="visible">This div is visible</div>
+  <div class="hidden">This div is invisible</div>
+</body>
+</html>
