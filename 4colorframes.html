@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'/>
+		<title> Two rows, two columns </title>
+<style>
+body{
+	margin: 0; height: 100vh; display: flex;
+	flex-direction: column;
+}
+.row{
+	display: flex;
+	flex: 1;}
+.frame{flex: 1}
+</style>
+	</head>
+	<body>
+		<script>
+			const n = 2;
+			document.addEventListener('DOMContentLoaded', () => {
+							for (let i = 0; i< n; i++){
+											const row = document.createElement('div');
+											row.className = 'row';
+											for(let j = 0; j < n; j++){
+															const frame = document.createElement('div');
+															frame.className = 'frame';
+															frame.style.backgroundColor = `rgb(${Math.random() * 256}, ${Math.random() * 256}, ${Math.random() * 256})`
+															row.appendChild(frame);
+														}
+											document.body.appendChild(row);}});
+
+		</script>
+	</body>
+</html>
+
