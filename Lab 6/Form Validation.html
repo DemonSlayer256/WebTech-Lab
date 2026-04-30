@@ -1,58 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Form validation</title>
-<style>
+  <title>Form Validation</title>
+  <style>
+button{
+	display: block;
+	margin: 0 auto;
+}
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  width: 250px;
-}
-input, select, button {
-  margin: 5px 0;
-  padding: 5px;
-  font-size: 1em;
-}
-#output {
-  width: 250px;
-  height: 80px;
-  margin-top: 10px;
-}
-</style>
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    label {
+      display: inline-block;
+      width: calc(4ch + 20px); /* Adjust based on label word length */
+      text-align: right;
+      margin-right: 10px;
+    }
+    input[type="text"], input[type="color"] {
+      width: calc(20ch + 10px);
+      padding: 5px;
+    }
+  </style>
 </head>
 <body>
-<form id="myForm">
-  <input placeholder="Name" id="name" />
-  <input placeholder="Email" id="email" />
-  <input placeholder="Mobile No" id="mobile" />
-  <select id="gender">
-    <option value="">Gender</option>
-    <option>Male</option>
-    <option>Female</option>
-  </select>
-  <input placeholder="Favorite Color" id="color" />
-  <button type="button" id="submitBtn">Submit</button>
+
+<h2>User Form</h2>
+
+<form id="userForm">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name">
+  </div><br>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email">
+  </div><br>
+  <div>
+    <label for="mobile">Mobile No:</label>
+    <input type="text" id="mobile">
+  </div><br>
+  <div>
+    <span style="margin-right: 10px;">Gender:</span>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+  </div><br>
+  <div>
+    <label for="color">Favorite Color:</label>
+    <input type="color" id="color">
+  </div><br>
+  <button type="button" onclick="validateForm()">Submit</button>
 </form>
-<textarea id="output" readonly></textarea>
+
+<br>
+
+<textarea id="output" rows="6" cols="40" placeholder="User details will appear here" readonly></textarea>
 
 <script>
-const $=document.querySelector.bind(document);
-$('button#submitBtn').onclick=function() {
-  const n=$('#name').value.trim(),
-        e=$('#email').value.trim(),
-        m=$('#mobile').value.trim(),
-        g=$('#gender').value,
-        c=$('#color').value.trim();
-  if(!n||!e||!m||!g||!c){ alert('Fill all fields'); return; }
-  $('#output').value=`Name: ${n}\nEmail: ${e}\nMobile: ${m}\nGender: ${g}\nColor: ${c}`;
+function validateForm() {
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+    let color = document.getElementById("color").value;
+
+    let genderElements = document.getElementsByName("gender");
+    let gender = "";
+
+    for (let g of genderElements) {
+        if (g.checked) {
+            gender = g.value;
+        }
+    }
+
+    if (name === "") {
+        alert("Name is required");
+        return;
+    }
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        alert("Enter valid email");
+        return;
+    }
+
+    let mobilePattern = /^[0-9]{10}$/;
+    if (!mobile.match(mobilePattern)) {
+        alert("Enter valid 10-digit mobile number");
+        return;
+    }
+
+    if (gender === "") {
+        alert("Select gender");
+        return;
+    }
+
+    let result = "Name: " + name + "\n" +
+                 "Email: " + email + "\n" +
+                 "Mobile: " + mobile + "\n" +
+                 "Gender: " + gender + "\n" +
+                 "Favorite Color: " + color;
+
+    document.getElementById("output").value = result;
 }
 </script>
+
 </body>
 </html>
