@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Form validation</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+input, select, button {
+  margin: 5px 0;
+  padding: 5px;
+  font-size: 1em;
+}
+#output {
+  width: 250px;
+  height: 80px;
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<form id="myForm">
+  <input placeholder="Name" id="name" />
+  <input placeholder="Email" id="email" />
+  <input placeholder="Mobile No" id="mobile" />
+  <select id="gender">
+    <option value="">Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+  </select>
+  <input placeholder="Favorite Color" id="color" />
+  <button type="button" id="submitBtn">Submit</button>
+</form>
+<textarea id="output" readonly></textarea>
+
+<script>
+const $=document.querySelector.bind(document);
+$('button#submitBtn').onclick=function() {
+  const n=$('#name').value.trim(),
+        e=$('#email').value.trim(),
+        m=$('#mobile').value.trim(),
+        g=$('#gender').value,
+        c=$('#color').value.trim();
+  if(!n||!e||!m||!g||!c){ alert('Fill all fields'); return; }
+  $('#output').value=`Name: ${n}\nEmail: ${e}\nMobile: ${m}\nGender: ${g}\nColor: ${c}`;
+}
+</script>
+</body>
+</html>
