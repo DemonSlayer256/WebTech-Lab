@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Calculator </title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+input, select, button {
+  padding: 5px;
+  font-size: 1em;
+}
+</style>
+</head>
+<body>
+<input id="a" placeholder="Num1" type="number" />
+<select id="op">
+  <option>+</option>
+  <option>-</option>
+  <option>*</option>
+  <option>/</option>
+</select>
+<input id="b" placeholder="Num2" type="number" />
+<button id="calcBtn">=</button>
+<input id="res" readonly />
+
+<script>
+const $=document.querySelector.bind(document);
+$('button#calcBtn').onclick=function() {
+  const a=+$('#a').value, b=+$('#b').value, o=$('#op').value, r;
+  switch(o){
+    case '+': r=a+b; break;
+    case '-': r=a-b; break;
+    case '*': r=a*b; break;
+    case '/': r=b?a/b:'Error'; break;
+  }
+  $('#res').value=r;
+}
+</script>
+</body>
+</html>
