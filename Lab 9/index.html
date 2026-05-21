@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Registration Page Validation</title>
+    <style>
+label {
+            display: inline-block;
+            /* Base label width is 80px, adding 20px extra spacing dynamically */
+            width: 80px;
+            margin-right: calc(20px + 5px);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .submit-group {
+            /* Aligns the button with the inputs (80px label + 25px margin) */
+            margin-left: calc(80px + 25px);
+        }
+    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+    //<![CDATA[
+    function validateForm() {
+        var errors = [];
+
+        // 1. User ID Validation (Length 5 to 12)
+        var uid = document.getElementById("userId").value;
+        var uidRegex = /^.{5,12}$/;
+        if (!uidRegex.test(uid)) {
+            errors.push("- User ID must be between 5 and 12 characters.");
+        }
+
+        // 2. Name Validation (Only alphabets, length >= 15)
+        var name = document.getElementById("name").value;
+        var nameRegex = /^[A-Za-z\s]{15,}$/;
+        if (!nameRegex.test(name)) {
+            errors.push("- Name must contain only alphabets and be at least 15 characters long.");
+        }
+
+        // 3. Password Validation (Exactly 8 characters, 1 uppercase, 1 special, alphanumeric)
+        var password = document.getElementById("password").value;
+        var passRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-zA-Z0-9]).{8}$/;
+        if (!passRegex.test(password)) {
+            errors.push("- Password must be exactly 8 characters long, containing at least one uppercase letter, one special character, and alphanumeric characters.");
+        }
+
+        // 4. E-mail Validation
+        var email = document.getElementById("email").value;
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            errors.push("- Please enter a valid e-mail address.");
+        }
+
+        // If there are errors, show them in an alert and stop form submission
+        if (errors.length > 0) {
+            alert("Validation Failed:\n\n" + errors.join("\n"));
+            return false;
+        }
+
+        // If no errors, let the form submit successfully
+        alert("Registration successful!");
+        return true;
+    }
+    //]]>
+    </script>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+    
+    <form action="success.html" method="post" onsubmit="return validateForm();">
+        
+        <div>
+            <label for="userId">User ID: </label>
+            <input type="text" id="userId" name="userId" />
+        </div>
+        <br />
+
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" />
+        </div>
+        <br />
+
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password" />
+        </div>
+        <br />
+
+        <div>
+            <label for="email">E-mail: </label>
+            <input type="text" id="email" name="email" />
+        </div>
+        <br />
+
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+
+    </form>
+
+</body>
+</html>
