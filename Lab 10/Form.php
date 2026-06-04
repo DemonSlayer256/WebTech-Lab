@@ -25,7 +25,8 @@
         $file = 'submissions.txt';
         $entry = "Name: $name, Email: $email, Date: " . date('d-m-Y H:i:s') . "\n";
 
-        file_put_contents($file, $entry, FILE_APPEND);
+	file_put_contents($file, $entry, FILE_APPEND);
+	echo "File successfully saved at: " . realpath($file);
     }
     ?>
 </body>
